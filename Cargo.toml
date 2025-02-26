@@ -1,0 +1,22 @@
+[package]
+name = "SuperSeed"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+bio = "2.0"
+flate2 = "1.0"
+zstd = "0.11"
+crossbeam-channel = "0.5"
+num_cpus = "1.15"
+
+
+
+[profile.dev]
+opt-level = 3
+debug = false          # remove debug info
+lto = "fat"            # use fat Link-Time Optimization
+codegen-units = 1      # fewer codegen units for better optimization
+panic = "abort"        # use abort to reduce overhead
+incremental = false 
